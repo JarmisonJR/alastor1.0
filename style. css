@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #050505;
+  color: #00ff41;
+  font-family: 'Courier New', Courier, monospace;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Efeito de Tela CRT / Monitor Antigo */
+.crt-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.terminal {
+  width: 90%;
+  max-width: 800px;
+  height: 80vh;
+  background-color: #0a0a0a;
+  border: 2px solid #003b00;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+#output {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+p {
+  line-height: 1.4;
+  text-shadow: 0 0 5px rgba(0, 255, 65, 0.6);
+}
+
+.system-msg {
+  color: #888;
+}
+
+.puzzle-msg {
+  color: #00ff41;
+  font-weight: bold;
+}
+
+.error-msg {
+  color: #ff3333;
+  text-shadow: 0 0 5px rgba(255, 51, 51, 0.6);
+}
+
+.success-msg {
+  color: #ffff55;
+  text-shadow: 0 0 5px rgba(255, 255, 85, 0.6);
+}
+
+/* Campo de Entrada */
+.input-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  border-top: 1px solid #003b00;
+  padding-top: 10px;
+}
+
+.prompt {
+  color: #00ff41;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #00ff41;
+  font-family: inherit;
+  font-size: 1rem;
+  width: 100%;
+}
+
+/* Animação de Glitch ao Errar */
+.glitch {
+  animation: glitch-anim 0.2s 2;
+}
+
+@keyframes glitch-anim {
+  0% { transform: translate(0); }
+  20% { transform: translate(-5px, 5px); }
+  40% { transform: translate(-5px, -5px); }
+  60% { transform: translate(5px, 5px); }
+  80% { transform: translate(5px, -5px); }
+  100% { transform: translate(0); }
+}
